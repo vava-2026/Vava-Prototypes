@@ -135,11 +135,12 @@ public class HelloApplication extends Application {
             else {
                 gc.setFill(Color.DARKGREEN);
             }
-            drawPolygon(gc, country.getPolygon().getPoints());
+            drawPolygon(gc, country);
         }
     }
 
-    private void drawPolygon(GraphicsContext gc, List<Point> points) {
+    private void drawPolygon(GraphicsContext gc, CountryPolygon polygon) {
+        List<Point> points = polygon.getPoints();
         if (points.isEmpty()) return;
 
         double[] xPoints = new double[points.size()];

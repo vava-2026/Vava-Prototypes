@@ -18,7 +18,7 @@ public class Map
         countryPolygons = GeoJsonParser.parse(inputStream);
 
         for (CountryPolygon cp : countryPolygons) {
-            System.out.println("Loaded country polygon: " + cp.getName() + " with " + cp.getPolygon().getPoints().size() + " points");
+            System.out.println("Loaded country polygon: " + cp.getName() + " with " + cp.getPoints().size() + " points");
         }
     }
 
@@ -54,7 +54,7 @@ public class Map
     public Optional<Country> getCountryByPoint(Point p)
     {
         return countryPolygons.stream()
-                .filter(cp -> cp.getPolygon().contains(p))
+                .filter(cp -> cp.contains(p))
                 .findFirst()
                 .map(CountryPolygon::getName)
                 .flatMap(this::getCountryByName);

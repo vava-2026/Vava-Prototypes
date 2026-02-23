@@ -1,0 +1,35 @@
+classDiagram
+    class Map {
+        +getCountryPolygons() CountryPolygon[]
+        +getCountryByName(name: String) Country
+        +getCountryByPoint(point: Point) Country
+    }
+    CountryPolygon *-- Map
+    Map ..> Country
+
+    class Point {
+        +latitude : double
+        +longtitude : double
+    }
+
+    class Polygon {
+        -points : Point[]
+        getPoints() Point[]
+        contains(Point) boolean
+    }
+    Point *-- Polygon
+
+    class CountryPolygon {
+        -polygon : Polygon
+        -countryName : String
+        +getName() String
+        +getPolygon() Polygon
+    }
+    Polygon <|-- CountryPolygon
+
+    class Country {
+        -polygons : CountryPolygon[]
+        +getName() String
+        +getPolygons() CountryPolygon[]
+    }
+    CountryPolygon *-- Country

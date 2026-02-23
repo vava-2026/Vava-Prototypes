@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Polygon
 {
-    private List<Point> points;
+    private final List<Point> points;
 
     Polygon(List<Point> points) {
         this.points = points;
