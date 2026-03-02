@@ -1,0 +1,14 @@
+.input-item {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: black;
+    -fx-prompt-text-fill: gray;
+    -fx-font-size: 16px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 8;
+}
+
+.input-item:focused {
+    -fx-border-color: #377fb3;
+    -fx-border-width: 2;
+}
